@@ -1,0 +1,28 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /files  #服务器地址，说白了就是在访问路径上加个 /files 可加可不加
+
+spring:
+#  autoconfigure:
+#    exclude: org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration
+  resources: #指定静态资源所在位置，不写的话默认是放在static下，或者通过controller返回视图
+    static-locations: classpath:/templates/
+  thymeleaf: #静态资源后缀
+    suffix: .html
+    cache: false
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver #com.mysql.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/upload?characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.fileStudy.entity
+
+logging:
+  level:
+    com:
+      fileStudy:
+        mapper: debug

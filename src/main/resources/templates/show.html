@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<h1>欢迎访问</h1>
+<table border="1px"  >
+    <tr>
+        <th>id</th>
+        <th>文件原始名称</th>
+        <th>新文件名称</th>
+        <th>文件后缀</th>
+        <th>存储路径</th>
+        <th>文件大小</th>
+        <th>类型</th>
+        <th>操作</th>
+    </tr>
+
+    <tr th:each="file,fileStat:${files}">
+<!--        <th><span th:text="${file.id}"/></th>-->
+        <th>111</th>
+        <th>测试</th>
+        <th>测试新</th>
+        <th>jpg</th>
+        <th>/c</th>
+        <th>1024k</th>
+        <th>text</th>
+        <th>
+            <a href="/files/file/" name="upload">下载</a>
+        </th>
+    </tr>
+</table>
+<hr>
+<h3>上传文件</h3>
+<form action="/files/file/upload" enctype="multipart/form-data" method="post">
+    <input type="file" name="file">
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>
